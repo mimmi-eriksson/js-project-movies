@@ -13,7 +13,7 @@ const MovieCard = ({ movie }) => {
         className="w-full"
         src={imageBaseUrl + imageSize + movie.poster_path}
         alt={movie.title} />
-      <div className="absolute top-0 bottom-0 left-0 right-0 text-white bg-black/75 px-5 py-10 flex flex-col justify-end gap-5">
+      <div className="absolute top-0 bottom-0 left-0 right-0 text-white bg-black/75 px-5 py-10 flex flex-col justify-end gap-5 opacity-0 hover:opacity-100">
         <h2 className="text-3xl font-bold">{movie.title}</h2>
         <p className="">Released {movie.release_date}</p>
       </div>
