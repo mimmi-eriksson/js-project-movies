@@ -1,8 +1,12 @@
 
 
-const Poster = ({ image }) => {
+const Poster = ({ src, alt }) => {
   return (
-    <img src={image} alt="Movie Poster" />
+    <div className="p-1">
+      <img 
+        src={src} 
+        alt={alt} />
+    </div>
   )
 }
 

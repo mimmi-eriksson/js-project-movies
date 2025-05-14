@@ -4,10 +4,10 @@ const MovieInfo = ({ title, score, desc }) => {
   return (
     <div>
       <div>
-        <h2>{title}</h2>
-        <p>⭐{score}</p>
+        <h2 className="text-white">{title}</h2>
+        <p className="text-white">⭐{score}</p>
       </div>
-      <p>{desc}</p>
+      <p className="text-white">{desc}</p>
     </div>
   )
 }
