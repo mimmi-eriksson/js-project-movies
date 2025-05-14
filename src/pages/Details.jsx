@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
+import MovieInfo from "../components/MovieInfo"
 
 const Details = () => {
   const { movieId } = useParams()

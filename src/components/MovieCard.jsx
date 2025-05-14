@@ -15,7 +15,7 @@ const MovieCard = ({ movie }) => {
         alt={movie.title} />
       <div className="absolute top-0 bottom-0 left-0 right-0 text-white bg-black/75 px-5 py-10 flex flex-col justify-end gap-5">
         <h2 className="text-4xl font-bold">{movie.title}</h2>
-        <p className="text-lg">Released {movie.releaseDate}</p>
+        <p className="text-lg">Released {movie.release_date}</p>
       </div>
     </Link>
   )
