@@ -2,12 +2,15 @@
 
 const MovieInfo = ({ title, score, desc }) => {
   return (
-    <div className="w-full">
-      <div className="flex w-full justify-between p-2 text-xl">
-        <h2 className="text-white p-1 font-bold text-shadow-lg">{title}</h2>
-        <p className="text-black bg-white p-1 font-semibold">⭐{score}</p>
+    <div className="w-full px-3">
+      <div className="flex w-full justify-between text-2xl">
+        <h1 className="text-white">
+          <span className="font-bold text-shadow-lg">{title} </span>
+          <span className="text-black h-max bg-white">⭐{score}</span>
+        </h1>
+      
       </div>
-      <p className="text-white p-2">{desc}</p>
+      <p className="text-white">{desc}</p>
     </div>
   )
 }

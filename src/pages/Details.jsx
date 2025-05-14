@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 import MovieInfo from "../components/MovieInfo"
 import Poster from "../components/Poster"
+import BackButton from "../components/BackButton"
 
 const Details = () => {
   const { movieId } = useParams()
@@ -30,15 +31,19 @@ const Details = () => {
     >
       <div className='absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0)_35%)]'>
       </div>
-      
-      <div className='relative z-20 p-3 flex flex-col items-center gap-3'>
-        <Link to={"/"}>Back to Movies</Link>
+
+
+      <div className='relative z-20 p-2 flex flex-col items-center gap-2'>
+        <Link to={"/"}>
+          <BackButton />
+        </Link>
         <Poster src={imageBaseUrl + posterImgSize + movieDetails.poster_path} />
         <MovieInfo
           title={movieDetails.title}
-          score={movieDetails.vote_average}
+          score={(Math.round(movieDetails.vote_average * 10) / 10).toFixed(1)}
           desc={movieDetails.overview} />
       </div>
+
     </section>
   )
 }
