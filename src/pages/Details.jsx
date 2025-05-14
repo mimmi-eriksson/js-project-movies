@@ -26,17 +26,19 @@ const Details = () => {
       style={{
         backgroundImage: `url(${imageBaseUrl + backgroundImgSize + movieDetails.backdrop_path})`,
       }}
-      className="bg-auto bg-left-bottom bg-no-repeat h-screen w-screen overflow-hidden"
+      className="bg-auto bg-left-bottom bg-no-repeat h-screen w-screen overflow-hidden px-10"
     >
-      <Poster src={imageBaseUrl + posterImgSize + movieDetails.poster_path} />
-      <MovieInfo
-        title={movieDetails.title}
-        score={movieDetails.vote_average}
-        desc={movieDetails.overview} />
-
-
-
-      <Link to={"/"}>Back to Movies</Link>
+      <div className='absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0)_35%)]'>
+      </div>
+      
+      <div className='relative z-20 p-3 flex flex-col items-center gap-3'>
+        <Link to={"/"}>Back to Movies</Link>
+        <Poster src={imageBaseUrl + posterImgSize + movieDetails.poster_path} />
+        <MovieInfo
+          title={movieDetails.title}
+          score={movieDetails.vote_average}
+          desc={movieDetails.overview} />
+      </div>
     </section>
   )
 }
