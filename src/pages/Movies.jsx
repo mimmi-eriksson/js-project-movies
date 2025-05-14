@@ -15,7 +15,7 @@ const Movies = () => {
 
   return (
     <section>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap bg-black">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         )
