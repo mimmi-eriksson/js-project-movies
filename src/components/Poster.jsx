@@ -1,11 +1,14 @@
 
 
-const Poster = ({ src, alt }) => {
+const Poster = ({ src, srcSet, sizes, alt, className }) => {
   return (
-    <div className="bg-white w-max p-1">
+    <div className="bg-white w-max h-max p-1 min-[577px]:self-end">
       <img
-        src={src} 
-        alt={alt} />
+        src={src}
+        srcSet={srcSet}
+        sizes={sizes}
+        alt={alt}
+        className={className || 'block'} />
     </div>
   )
 }
