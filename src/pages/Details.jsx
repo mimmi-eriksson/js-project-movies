@@ -24,19 +24,27 @@ const Details = () => {
 
   return (
     <section
+      className="fixed inset-0 bg-cover bg-center overflow-hidden"
       style={{
-        backgroundImage: `url(${imageBaseUrl + backgroundImgSize + movieDetails.backdrop_path})`,
+        backgroundImage: movieDetails.backdrop_path
+          ? `linear-gradient(
+           to top,
+           rgba(0,0,0,0.9)   0%,
+           rgba(0,0,0,0)    35%
+         ),
+         url(${imageBaseUrl}${backgroundImgSize}${movieDetails.backdrop_path})`
+          : undefined
       }}
-      className="bg-auto bg-left-bottom bg-no-repeat h-screen w-screen overflow-hidden px-10"
     >
-      <div className='absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0)_35%)]'>
-      </div>
+      <Link 
+        to={"/"}
+        className='absolute left-[50px] top-[10px]' >
+        <BackButton />
+      </Link>
 
 
-      <div className='absolute bottom-0 top-0 z-20 flex flex-col justify-between py-10'>
-        <Link to={"/"} >
-          <BackButton />
-        </Link>
+      <div className='flex flex-col p-[50px]'>
+
         <div>
           <Poster src={imageBaseUrl + posterImgSize + movieDetails.poster_path} />
           <MovieInfo
