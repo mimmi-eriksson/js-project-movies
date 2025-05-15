@@ -10,18 +10,39 @@ import { Loader } from "../components/Loader"
 const Details = () => {
   const { movieId } = useParams()
   const [movieDetails, setMovieDetails] = useState({})
+  const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
   const imageBaseUrl = "https://image.tmdb.org/t/p/" //secure base url
   const backgroundImgSize = "w1280"
-  // const posterImgSize = "w185"
+  
 
   const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
-      .then((response) => response.json())
-      .then((data) => setMovieDetails(data))
-      .catch((error) => console.error('Error fetching movie details:', error));
+    const fetchMovieDetail = async () => {
+
+      try {
+        setErrorMessage("")
+        setLoading(true)
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
+        if (!response.ok) {
+          throw new Error(`Error fetching movie details. Response status: ${response.status}`)
+        }
+        const data = await response.json()
+        setMovieDetails(data)
+      } catch (error) {
+        console.error(error.message)
+        setErrorMessage(error.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchMovieDetail()
   }, [])
+
+
+
 
 
   return (
@@ -32,6 +53,8 @@ const Details = () => {
         className='absolute left-[50px] top-[10px] z-20' >
         <BackButton />
       </Link>
+
+      {loading && <Loader />}
 
       <div
         className="min-h-screen flex flex-col justify-end bg-cover bg-center relative"
