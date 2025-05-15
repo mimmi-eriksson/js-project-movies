@@ -33,15 +33,17 @@ const Details = () => {
       </div>
 
 
-      <div className='relative z-20 p-2 flex flex-col items-center gap-2'>
-        <Link to={"/"}>
+      <div className='absolute bottom-0 top-0 z-20 flex flex-col justify-between py-10'>
+        <Link to={"/"} >
           <BackButton />
         </Link>
-        <Poster src={imageBaseUrl + posterImgSize + movieDetails.poster_path} />
-        <MovieInfo
-          title={movieDetails.title}
-          score={(Math.round(movieDetails.vote_average * 10) / 10).toFixed(1)}
-          desc={movieDetails.overview} />
+        <div>
+          <Poster src={imageBaseUrl + posterImgSize + movieDetails.poster_path} />
+          <MovieInfo
+            title={movieDetails.title}
+            score={(Math.round(movieDetails.vote_average * 10) / 10).toFixed(1)}
+            desc={movieDetails.overview} />
+        </div>
       </div>
 
     </section>

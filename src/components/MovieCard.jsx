@@ -7,7 +7,7 @@ const MovieCard = ({ movie }) => {
   return (
     <Link
       to={`/movies/${movie.id}`}
-      className="relative grow w-full min-[370px]:w-1/2 min-[570px]:w-1/3 min-[820px]:w-1/4"
+      className="relative w-full min-[370px]:w-1/2 min-[570px]:w-1/3 min-[820px]:w-1/4"
     >
       <img
         className="w-full"
