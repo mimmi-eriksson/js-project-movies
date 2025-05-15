@@ -1,5 +1,6 @@
 import { Link } from "react-router"
 import NavDesktop from "./NavDesktop"
+import NavMobile from "./NavMobile"
 
 const Menu = () => {
   return (
@@ -9,6 +10,7 @@ const Menu = () => {
           <Link to="/">Movies</Link>
         </h1>
         <NavDesktop />
+        <NavMobile />
       </nav>
     </header>
   )
