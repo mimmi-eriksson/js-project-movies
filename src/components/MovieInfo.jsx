@@ -6,7 +6,7 @@ const MovieInfo = ({ title, score, desc }) => {
       <div className="flex w-full justify-between text-2xl">
         <h1 className="text-white">
           <span className="font-bold text-shadow-lg">{title} </span>
-          <span className="text-black h-max bg-white">⭐{score}</span>
+          <span className="text-black h-max bg-white pr-1">⭐{score}</span>
         </h1>
       
       </div>
