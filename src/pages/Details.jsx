@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import MovieInfo from "../components/MovieInfo"
 import Poster from "../components/Poster"
 import BackButton from "../components/BackButton"
+import { Loader } from "../components/Loader"
 
 
 const Details = () => {
@@ -25,6 +26,7 @@ const Details = () => {
 
   return (
     <section className='relative'>
+      
       <Link
         to={"/"}
         className='absolute left-[50px] top-[10px] z-20' >
