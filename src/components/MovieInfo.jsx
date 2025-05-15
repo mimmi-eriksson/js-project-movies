@@ -2,7 +2,7 @@
 
 const MovieInfo = ({ title, score, desc }) => {
   return (
-    <div className="flex flex-col w-full justify-end gap-2">
+    <div className="flex flex-col w-full justify-end gap-4">
       <div className="flex w-full justify-between text-2xl">
         <h1 className="text-white">
           <span className="font-bold text-shadow-lg">{title} </span>
