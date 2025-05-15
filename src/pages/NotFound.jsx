@@ -1,7 +1,7 @@
-import { Loader } from "../components/Loader"
+// import { Loader } from "../components/Loader"
 
-const NotFound = () => {
-  return (
-    <Loader />
-  )
-}
+// const NotFound = () => {
+//   return (
+//     <Loader />
+//   )
+// }
