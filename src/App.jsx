@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router"
 import Movies from "./pages/Movies"
 import Details from "./pages/Details"
+import NotFound from "./pages/NotFound"
 
 export const App = () => {
   return (
@@ -10,6 +11,7 @@ export const App = () => {
           <Route path="/" element={<Movies />} />
           <Route path="/:movieList" element={<Movies />} />
           <Route path="/movies/:movieId" element={<Details />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
