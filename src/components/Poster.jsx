@@ -3,7 +3,7 @@
 const Poster = ({ src, alt }) => {
   return (
     <div className="bg-white w-max p-1">
-      <img 
+      <img
         src={src} 
         alt={alt} />
     </div>

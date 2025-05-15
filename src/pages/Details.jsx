@@ -23,36 +23,43 @@ const Details = () => {
 
 
   return (
-    <section
-      className="fixed inset-0 bg-cover bg-center overflow-hidden"
-      style={{
-        backgroundImage: movieDetails.backdrop_path
-          ? `linear-gradient(
-           to top,
-           rgba(0,0,0,0.9)   0%,
-           rgba(0,0,0,0)    35%
-         ),
-         url(${imageBaseUrl}${backgroundImgSize}${movieDetails.backdrop_path})`
-          : undefined
-      }}
-    >
-      <Link 
+    <section className='relative'>
+
+      <Link
         to={"/"}
-        className='absolute left-[50px] top-[10px]' >
+        className='absolute left-[50px] top-[10px] z-20' >
         <BackButton />
       </Link>
 
+      <div
+        className="min-h-screen flex flex-col justify-end bg-cover bg-center relative"
+        style={{
+          backgroundImage: movieDetails.backdrop_path
+            ? `linear-gradient(
+           to top,
+           rgba(0,0,0,0.9)   0%,
+           rgba(0,0,0,0)    50%
+         ),
+         url(${imageBaseUrl}${backgroundImgSize}${movieDetails.backdrop_path})`
+            : undefined
+        }}>
 
-      <div className='flex flex-col p-[50px]'>
-
-        <div>
+        <div className='flex flex-col padding p-[50px] z-20 space-y-6'>
           <Poster src={imageBaseUrl + posterImgSize + movieDetails.poster_path} />
           <MovieInfo
             title={movieDetails.title}
             score={(Math.round(movieDetails.vote_average * 10) / 10).toFixed(1)}
             desc={movieDetails.overview} />
         </div>
+
+
+
       </div>
+
+
+
+
+
 
     </section>
   )
