@@ -1,12 +1,12 @@
 import MenuItem from "./MenuItem"
 
-const NavDesktop = () => {
+const NavDesktop = ({ onSelectList }) => {
   return (
     <ul className="hidden md:flex gap-8 items-center text-lg">
-      <MenuItem text="Popular" path="/popular" />
-      <MenuItem text="Top Rated" path="/top_rated" />
-      <MenuItem text="Now Playing" path="/now_playing" />
-      <MenuItem text="Upcoming" path="/upcoming" />
+      <MenuItem text="Popular" path="/popular" onSelectList={onSelectList} />
+      <MenuItem text="Top Rated" path="/top_rated" onSelectList={onSelectList} />
+      <MenuItem text="Now Playing" path="/now_playing" onSelectList={onSelectList} />
+      <MenuItem text="Upcoming" path="/upcoming" onSelectList={onSelectList} />
     </ul>
   )
 }

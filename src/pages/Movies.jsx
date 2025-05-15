@@ -51,9 +51,9 @@ const Movies = () => {
   return (
     <section>
       <Menu />
+      {loading && <Loader />}
+      {notFound && <NotFound />}
       <div className="flex flex-wrap">
-        {loading && <Loader />}
-        {notFound && <NotFound />}
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         )
