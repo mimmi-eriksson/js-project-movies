@@ -14,7 +14,7 @@ const Details = () => {
   const [errorMessage, setErrorMessage] = useState("")
   const imageBaseUrl = "https://image.tmdb.org/t/p/" //secure base url
   const backgroundImgSize = "w1280"
-  
+
 
   const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
@@ -43,10 +43,10 @@ const Details = () => {
 
   return (
     <section className='relative'>
-      
+
       <Link
         to={"/"}
-        className='absolute left-[50px] top-[10px] z-20' >
+        className='absolute left-[50px] top-[15px] z-20 min-[577px]:top-[25px]' >
         <BackButton />
       </Link>
 
