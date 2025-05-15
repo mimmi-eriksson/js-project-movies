@@ -44,7 +44,7 @@ const Details = () => {
             : undefined
         }}>
 
-        <div className='flex flex-col padding p-[50px] z-20 min-[577px]:flex-row'>
+        <div className='flex flex-col padding p-[50px] z-20 gap-2 min-[577px]:flex-row'>
           <Poster src={`${imageBaseUrl}w154${movieDetails.poster_path}`}
             srcSet={`
               ${imageBaseUrl}w185${movieDetails.poster_path} 185w,
