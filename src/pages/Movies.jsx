@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from 'react-router'
 import MovieCard from "../components/MovieCard"
 import Menu from "../components/Menu"
+import { Loader } from "../components/Loader"
 
 const Movies = () => {
   const { movieList } = useParams()
@@ -48,7 +49,7 @@ const Movies = () => {
     <section>
       <Menu />
       <div className="flex flex-wrap">
-        {/* {loading && <Loader />} */}
+        {loading && <Loader />}
         {/* {errorMessage && <Error text={errorMessage} />} */}
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />

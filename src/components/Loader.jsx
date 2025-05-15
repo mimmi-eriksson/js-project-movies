@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
 
 const LoadingDot = {
   display: "block",
@@ -46,42 +47,39 @@ const DotTransition = {
 
 export const Loader = () => {
   return (
-    <div className="bg-black pt-5"
-      style={{
+    <div className="flex flex-col items-center justify-center w-full h-full py-40">
+      <h2 className="text-white text-3xl">Loading</h2>
+      <div className="bg-black pt-5 "
         
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
-      <motion.div
-        style={LoadingContainer}
-        variants={ContainerVariants}
-        initial="initial"
-        animate="animate"
       >
-        <motion.span
-          style={LoadingDot}
-          variants={DotVariants}
-          transition={DotTransition}
-        />
-        <motion.span
-          style={LoadingDot}
-          variants={DotVariants}
-          transition={DotTransition}
-        />
-        <motion.span
-          style={LoadingDot}
-          variants={DotVariants}
-          transition={DotTransition}
-        />
-        <motion.span
-          style={LoadingDot}
-          variants={DotVariants}
-          transition={DotTransition}
-        />
-      </motion.div>
+        <motion.div
+          style={LoadingContainer}
+          variants={ContainerVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <motion.span
+            style={LoadingDot}
+            variants={DotVariants}
+            transition={DotTransition}
+          />
+          <motion.span
+            style={LoadingDot}
+            variants={DotVariants}
+            transition={DotTransition}
+          />
+          <motion.span
+            style={LoadingDot}
+            variants={DotVariants}
+            transition={DotTransition}
+          />
+          <motion.span
+            style={LoadingDot}
+            variants={DotVariants}
+            transition={DotTransition}
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }
