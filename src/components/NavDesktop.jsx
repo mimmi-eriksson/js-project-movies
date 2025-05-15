@@ -1,20 +1,12 @@
-import { NavLink } from "react-router"
+import MenuItem from "./MenuItem"
 
 const NavDesktop = () => {
   return (
     <ul className="hidden md:flex gap-8 items-center text-lg">
-      <li>
-        <NavLink to="/popular">Popular</NavLink>
-      </li>
-      <li>
-        <NavLink to="/top_rated">Top Rated</NavLink>
-      </li>
-      <li>
-        <NavLink to="/now_playing">Now Playing</NavLink>
-      </li>
-      <li>
-        <NavLink to="/upcoming">Upcoming</NavLink>
-      </li>
+      <MenuItem text="Popular" path="/popular" />
+      <MenuItem text="Top Rated" path="/top_rated" />
+      <MenuItem text="Now Playing" path="/now_playing" />
+      <MenuItem text="Upcoming" path="/upcoming" />
     </ul>
   )
 }
