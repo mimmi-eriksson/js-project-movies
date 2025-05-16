@@ -6,7 +6,6 @@ import BackButton from '../components/BackButton'
 import { Loader } from '../components/Loader'
 import NotFound from '../components/NotFound'
 
-
 const Details = () => {
   const { movieId } = useParams()
   const [movieDetails, setMovieDetails] = useState({})
