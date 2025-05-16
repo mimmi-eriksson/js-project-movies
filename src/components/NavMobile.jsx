@@ -17,7 +17,7 @@ const NavMobile = ({ onSelectList }) => {
         <ul className="fixed top-15 left-0 right-0 bottom-0 z-2 flex flex-col items-end gap-8 text-lg bg-black p-8" onClick={handleMenuClick} >
           <MenuItem text="Popular" path="/popular" onSelectList={onSelectList} />
           <MenuItem text="Top Rated" path="/top_rated" onSelectList={onSelectList} />
-          <MenuItem text="Now Playing" path="/now_playing" onSelectList={onSelectList} />
+          <MenuItem text="On Cinema" path="/now_playing" onSelectList={onSelectList} />
           <MenuItem text="Upcoming" path="/upcoming" onSelectList={onSelectList} />
         </ul>
       )}

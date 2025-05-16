@@ -51,6 +51,7 @@ const Details = () => {
       </Link>
 
       {loading && <Loader />}
+      
 
       <div
         className="min-h-screen flex flex-col justify-end bg-cover bg-center relative"
