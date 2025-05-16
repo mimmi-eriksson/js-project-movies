@@ -5,13 +5,14 @@ import MovieInfo from "../components/MovieInfo"
 import Poster from "../components/Poster"
 import BackButton from "../components/BackButton"
 import { Loader } from "../components/Loader"
+import NotFound from "./NotFound"
 
 
 const Details = () => {
   const { movieId } = useParams()
   const [movieDetails, setMovieDetails] = useState({})
   const [loading, setLoading] = useState(false)
-  const [errorMessage, setErrorMessage] = useState("")
+  const [notFound, setNotFound] = useState(false)
   const imageBaseUrl = "https://image.tmdb.org/t/p/" //secure base url
   const backgroundImgSize = "w1280"
 
@@ -22,17 +23,18 @@ const Details = () => {
     const fetchMovieDetail = async () => {
 
       try {
-        setErrorMessage("")
         setLoading(true)
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
         if (!response.ok) {
+          if (response.status === 404) {
+            setNotFound(true)
+          }
           throw new Error(`Error fetching movie details. Response status: ${response.status}`)
         }
         const data = await response.json()
         setMovieDetails(data)
       } catch (error) {
         console.error(error.message)
-        setErrorMessage(error.message)
       } finally {
         setLoading(false)
       }
@@ -51,7 +53,7 @@ const Details = () => {
       </Link>
 
       {loading && <Loader />}
-      
+      {notFound && <NotFound />}
 
       <div
         className="min-h-screen flex flex-col justify-end bg-cover bg-center relative"
