@@ -1,9 +1,9 @@
 import { NavLink } from "react-router"
 
-const MenuItem = ({ text, path }) => {
+const MenuItem = ({ text, path, onSelectList }) => {
   return (
     <li>
-      <NavLink to={path}>{text}</NavLink>
+      <NavLink to={path} onClick={() => onSelectList(text)}>{text}</NavLink>
     </li>
   )
 }

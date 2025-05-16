@@ -3,19 +3,20 @@ import { useParams } from 'react-router'
 import MovieCard from "../components/MovieCard"
 import Menu from "../components/Menu"
 import { Loader } from "../components/Loader"
+import NotFound from "./NotFound"
 
 const Movies = () => {
   const { movieList } = useParams()
   const [url, setUrl] = useState("")
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(false)
-  const [errorMessage, setErrorMessage] = useState("")
+  const [notFound, setNotFound] = useState(false)
 
   const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
   // change url when movieList changes
   useEffect(() => {
-    const newUrl = movieList
+    const newUrl = (movieList)
       ? `https://api.themoviedb.org/3/movie/${movieList}?api_key=${apiKey}&language=en-US&page=1`
       : `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
 
@@ -26,17 +27,19 @@ const Movies = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        setErrorMessage("")
         setLoading(true)
+        setNotFound(false)
         const response = await fetch(url)
         if (!response.ok) {
-          throw new Error(`Error fetching movies. Response status: ${response.status}`)
+          if (response.status === 404) {
+            setNotFound(true)
+          }
+          throw new Error(`Error fetching movie details. Response status: ${response.status}`)
         }
         const data = await response.json()
         setMovies(data.results)
       } catch (error) {
         console.error(error.message)
-        setErrorMessage(error.message)
       } finally {
         setLoading(false)
       }
@@ -48,9 +51,9 @@ const Movies = () => {
   return (
     <section>
       <Menu />
+      {loading && <Loader />}
+      {notFound && <NotFound />}
       <div className="flex flex-wrap">
-        {loading && <Loader />}
-        {/* {errorMessage && <Error text={errorMessage} />} */}
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         )
