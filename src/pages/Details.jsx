@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 import MovieInfo from "../components/MovieInfo"
-import Poster from "../components/Poster"
 import BackButton from "../components/BackButton"
 import { Loader } from "../components/Loader"
 import NotFound from "../components/NotFound"
@@ -15,7 +14,7 @@ const Details = () => {
   const [notFound, setNotFound] = useState(false)
   const imageBaseUrl = "https://image.tmdb.org/t/p/" //secure base url
   const backgroundImgSize = "w1280"
-
+  const posterSize = "w500"
 
   const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
@@ -44,19 +43,13 @@ const Details = () => {
   }, [])
 
   return (
-    <section className='relative'>
-
-      <Link
-        to={"/"}
-        className='absolute left-[50px] top-[15px] z-20 min-[577px]:top-[25px]' >
-        <BackButton />
-      </Link>
+    <section>
 
       {loading && <Loader />}
       {notFound && <NotFound />}
 
       <div
-        className="min-h-screen flex flex-col justify-end bg-cover bg-center relative"
+        className="min-h-screen flex flex-col justify-end bg-cover bg-center"
         style={{
           backgroundImage: movieDetails.backdrop_path
             ? `linear-gradient(
@@ -68,23 +61,24 @@ const Details = () => {
             : undefined
         }}>
 
-        <div className='flex flex-col padding m-[50px] z-20 gap-4 min-[577px]:flex-row'>
-          <Poster src={`${imageBaseUrl}w154${movieDetails.poster_path}`}
-            srcSet={`
-              ${imageBaseUrl}w185${movieDetails.poster_path} 185w,
-              ${imageBaseUrl}w342${movieDetails.poster_path} 342w,
-              ${imageBaseUrl}w500${movieDetails.poster_path} 500w
-            `}
-            sizes="
-              (min-width: 770px) 500px,
-              (min-width: 577px) 342px,
-              185px
-            "
-            alt={movieDetails.title} />
-          <MovieInfo
-            title={movieDetails.title}
-            score={(Math.round(movieDetails.vote_average * 10) / 10).toFixed(1)}
-            desc={movieDetails.overview} />
+        <div className='flex flex-col justify-between z-20 p-[50px] pt-[20px] min-h-screen gap-2'>
+          <Link
+            to={"/"}
+          >
+            <BackButton />
+          </Link>
+
+          <div className='flex flex-col padding gap-4 min-[577px]:flex-row'>
+            <img
+              className='border-3 border-white max-w-[300px]'
+              src={imageBaseUrl + posterSize + movieDetails.poster_path}
+              alt={movieDetails.title}
+            />
+            <MovieInfo
+              title={movieDetails.title}
+              score={(Math.round(movieDetails.vote_average * 10) / 10).toFixed(1)}
+              desc={movieDetails.overview} />
+          </div>
         </div>
       </div>
     </section>
