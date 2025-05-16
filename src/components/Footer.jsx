@@ -6,7 +6,7 @@ const Footer = () => {
       className="py-3"
     >
       <div
-        className="flex items-center justify-center gap-5"
+        className="flex items-center justify-center gap-7"
       >
         <div className="flex flex-col items-center gap-1">
           <p
