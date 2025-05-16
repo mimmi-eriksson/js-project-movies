@@ -3,7 +3,7 @@ import SocialButton from "./SocialButton"
 const Footer = () => {
   return (
     <footer
-      className="py-5"
+      className="py-3"
     >
       <div
         className="flex items-center justify-center gap-5"
