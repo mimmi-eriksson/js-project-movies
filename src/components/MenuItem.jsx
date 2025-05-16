@@ -1,4 +1,4 @@
-import { NavLink } from "react-router"
+import { NavLink } from 'react-router'
 
 const MenuItem = ({ text, path, onSelectList }) => {
   return (
