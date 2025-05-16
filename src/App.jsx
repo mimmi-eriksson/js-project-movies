@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router"
 import Movies from "./pages/Movies"
 import Details from "./pages/Details"
-import NotFound from "./components/NotFound"
+
 
 export const App = () => {
   return (
