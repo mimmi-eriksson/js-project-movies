@@ -2,12 +2,12 @@ const SocialButton = ({ link, icon, text }) => {
   return (
     <li>
       <a
-        className=""
+        className=''
         href={link}
-        target="_blank"
+        target='_blank'
       >
         <img
-          className="w-5 h-5 hover:brightness-80"
+          className='w-5 h-5 hover:brightness-80'
           src={icon}
           alt={text} />
       </a>

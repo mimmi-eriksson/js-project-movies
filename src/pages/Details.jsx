@@ -1,10 +1,10 @@
 
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
-import MovieInfo from "../components/MovieInfo"
-import BackButton from "../components/BackButton"
-import { Loader } from "../components/Loader"
-import NotFound from "../components/NotFound"
+import MovieInfo from '../components/MovieInfo'
+import BackButton from '../components/BackButton'
+import { Loader } from '../components/Loader'
+import NotFound from '../components/NotFound'
 
 
 const Details = () => {
@@ -12,9 +12,9 @@ const Details = () => {
   const [movieDetails, setMovieDetails] = useState({})
   const [loading, setLoading] = useState(false)
   const [notFound, setNotFound] = useState(false)
-  const imageBaseUrl = "https://image.tmdb.org/t/p/" //secure base url
-  const backgroundImgSize = "w1280"
-  const posterSize = "w500"
+  const imageBaseUrl = 'https://image.tmdb.org/t/p/' //secure base url
+  const backgroundImgSize = 'w1280'
+  const posterSize = 'w500'
 
   const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
@@ -49,7 +49,7 @@ const Details = () => {
       {notFound && <NotFound />}
 
       <div
-        className="min-h-screen flex flex-col justify-end bg-cover bg-center"
+        className='min-h-screen flex flex-col justify-end bg-cover bg-center'
         style={{
           backgroundImage: movieDetails.backdrop_path
             ? `linear-gradient(
@@ -63,7 +63,7 @@ const Details = () => {
 
         <div className='flex flex-col justify-between z-20 p-[50px] pt-[20px] min-h-screen gap-2'>
           <Link
-            to={"/"}
+            to={'/'}
           >
             <BackButton />
           </Link>
