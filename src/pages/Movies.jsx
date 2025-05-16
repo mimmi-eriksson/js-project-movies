@@ -51,14 +51,16 @@ const Movies = () => {
 
   return (
     <section>
-      <Menu />
-      {loading && <Loader />}
-      {notFound && <NotFound />}
-      <div className="flex flex-wrap">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        )
-        )}
+      <div className="min-h-screen">
+        <Menu />
+        {loading && <Loader />}
+        {notFound && <NotFound />}
+        <div className="flex flex-wrap">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          )
+          )}
+        </div>
       </div>
       <Footer />
     </section>
