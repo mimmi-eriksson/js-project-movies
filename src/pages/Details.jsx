@@ -5,7 +5,7 @@ import MovieInfo from "../components/MovieInfo"
 import Poster from "../components/Poster"
 import BackButton from "../components/BackButton"
 import { Loader } from "../components/Loader"
-import NotFound from "./NotFound"
+import NotFound from "../components/NotFound"
 
 
 const Details = () => {

@@ -3,7 +3,8 @@ import { useParams } from 'react-router'
 import MovieCard from "../components/MovieCard"
 import Menu from "../components/Menu"
 import { Loader } from "../components/Loader"
-import NotFound from "./NotFound"
+import NotFound from "../components/NotFound"
+import Footer from "../components/Footer"
 
 const Movies = () => {
   const { movieList } = useParams()
@@ -59,6 +60,7 @@ const Movies = () => {
         )
         )}
       </div>
+      <Footer />
     </section>
   )
 }
