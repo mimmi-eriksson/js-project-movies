@@ -15,16 +15,15 @@ const Movies = () => {
 
   const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
-  
   useEffect(() => {
     const newUrl = (movieList)
       ? `https://api.themoviedb.org/3/movie/${movieList}?api_key=${apiKey}&language=en-US&page=1`
       : `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
 
     setUrl(newUrl)
-  }, [movieList, apiKey]) 
+  }, [movieList, apiKey])
 
-  
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
